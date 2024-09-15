@@ -78,28 +78,25 @@ export default {
           return store.state.user || {};
         }
     },
-    // watch: {
-    //     user(newVal) {
-    //         if (newVal && newVal.id) {
-    //             // O ponto antes de SendMessage indica que eu não preciso usar todo o namespace dele
-    //             Echo.private(`user.${this.user.id}`).listen('.SendMessage', async (e) => {
-    //
-    //                 console.log('New message event received:', e); // Debug
-    //
-    //                 if (this.userActive && this.userActive.id === e.message.from) {
-    //                     await this.messages.push(e.message);
-    //                     this.scrollToBottom();
-    //                 } else {
-    //                     const user = this.users.find((u) => u.id === e.message.from);
-    //
-    //                     if (user) {
-    //                         user.notification = true;
-    //                     }
-    //                 }
-    //             });
-    //         }
-    //     }
-    // },
+    watch: {
+        user(newVal) {
+            if (newVal && newVal.id) {
+                // O ponto antes de SendMessage indica que eu não preciso usar todo o namespace dele
+                Echo.private(`user.${this.user.id}`).listen('.SendMessage', async (e) => {
+                    if (this.userActive && this.userActive.id === e.message.from) {
+                        await this.messages.push(e.message);
+                        this.scrollToBottom();
+                    } else {
+                        const user = this.users.find((u) => u.id === e.message.from);
+
+                        if (user) {
+                            user.notification = true;
+                        }
+                    }
+                });
+            }
+        }
+    },
     methods: {
         scrollToBottom() {
             this.$nextTick(() => {
@@ -112,8 +109,6 @@ export default {
         },
         async loadMessage(userId) {
             axios.get(`api/users/${userId}`).then(response => {
-                console.log(response.data.user)
-                console.log(this.message)
                 this.userActive = response.data.user;
             })
 
@@ -143,28 +138,9 @@ export default {
         }
     },
     mounted() {
-        console.log('usuario no mounted: ', this.user.id);
-
         axios.get('api/users').then(response => {
             this.users = response.data.data;
         });
-
-        // O ponto antes de SendMessage indica que eu não preciso usar todo o namespace dele
-        // Echo.private(`user.${this.user.id}`).listen('.SendMessage', (e) => {
-        //
-        //     console.log('New message event received:', e); // Debug
-        //
-        //     if (this.userActive && this.userActive.id === e.message.from) {
-        //         this.messages.push(e.message);
-        //         this.scrollToBottom();
-        //     } else {
-        //         const user = this.users.find((u) => u.id === e.message.from);
-        //
-        //         if (user) {
-        //             user.notification = true;
-        //         }
-        //     }
-        // });
     },
 }
 </script>
