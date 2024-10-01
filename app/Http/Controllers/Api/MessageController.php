@@ -18,6 +18,7 @@ class MessageController extends Controller
      */
     public function index(User $user)
     {
+//        dd(Auth::user());
         $userFrom = Auth::user()->id;
         $userTo = $user->id;
 
