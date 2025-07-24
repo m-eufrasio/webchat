@@ -1,6 +1,6 @@
-<h1 align="center" style="font-weight: bold;">API Cache 💻</h1>
+<h1 align="center" style="font-weight: bold;">Web Chat 💻</h1>
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 
 <p align="center">
  <a href="#tech">Technologies</a> • 
@@ -32,7 +32,6 @@ OBS: The database used is PostgreSQL but feel free to use another one.
 - [**Laravel 10** or superior](https://laravel.com/);
 - [**GIT 2** or superior](https://github.com);
 - [**Pusher**](https://pusher.com);
-- [**Redis** version **6.0.16** or superior](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-windows/);
 - [Any database](https://www.postgresql.org);
 
 <h3>Cloning</h3>
@@ -48,6 +47,6 @@ git clone https://github.com/m-eufrasio/webchat.git
 1. Use the `.env.example` as reference to create your configuration file `.env`.
 2. To use Redis, you need do set `redis` in <b>QUEUE_CONNECTION</b>. After that, in <b>REDIS_CLIENT</b> set `predis` (or another lib equivalent)
 
-build...
+building...
 
 
