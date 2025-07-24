@@ -20,7 +20,6 @@
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![Pusher](https://img.shields.io/badge/Pusher-2E00B2?style=for-the-badge&logo=pusher&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
 
 OBS: The database used is PostgreSQL but feel free to use another one.
 
